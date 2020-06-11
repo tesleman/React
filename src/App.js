@@ -3,25 +3,35 @@ import 'materialize-css/dist/css/materialize.min.css'
 
 
 import './App.css';
-import Sidebar from "./Components/Sidebar";
-import Header from './Components/Header';
-import Profile from "./Components/Profile";
+import Sidebar from "./Components/Sidebar/Sidebar";
+import Header from './Components/Header/Header';
+import Profile from "./Components/Profile/Profile";
 import Bacground from "./Components/Bacground";
-import Stories from "./Components/Stories";
-import Footer from "./Components/Footer";
+
+import Footer from "./Components/Footer/Footer";
+import {Route} from "react-router-dom";
+import ProfileDetail from "./Components/Profile/ProfileDetail";
+import StoriesContainer from "./Components/Stories/StoriesContainer";
 
 
 const App = () => {
+
     return (
+
         <div>
-            <Bacground/>
+            <Bacground />
             <Header/>
             <div className="container">
                 <Sidebar/>
                 <Profile/>
-                <Stories/>
+
+                <Route path={'/Detail'} render={() => <ProfileDetail/>}/>
+                <Route path={'/Stories'}  render={() => <StoriesContainer/>}/>
+
+
             </div>
-            <div className="test"></div>
+
+
             <Footer />
 
         </div>

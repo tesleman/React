@@ -1,0 +1,22 @@
+.greed{
+
+    color:white;
+
+
+
+}
+table{
+    max-width: 45%;
+}
+td{
+
+    opacity: 1;
+    border: white 1px solid;
+}
+tr{
+
+    background-color:rgba(33,40,59, 0.9) ;
+    margin-left: 25px;
+
+
+}

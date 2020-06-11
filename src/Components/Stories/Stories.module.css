@@ -1,0 +1,40 @@
+.stories-btn :hover {
+    background-color: midnightblue;
+
+}
+
+.textarea {
+    max-width: 650px;
+    border-radius: 10px;
+    background-color: white;
+    min-height: 130px;
+
+    margin-top: 25px;
+
+}
+
+.stories_btn {
+    background-color: #21283b;
+    width: 70px;
+    border-radius: 10px;
+    border: aquamarine 1px solid;
+
+}
+
+.stories_item {
+    max-width: 650px;
+    border-radius: 10px;
+    background-color: #21283b;
+    margin-top: 5px;
+    text-align: center;
+    color: white;
+    font-family: "Roboto Condensed";
+    position: relative;
+    margin-bottom: 25px;
+
+}
+
+.wrapper {
+    display: grid;
+    padding-left: 25px;
+}

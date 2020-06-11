@@ -1,17 +1,17 @@
 import React from 'react';
-
+import s from './Profile.module.css'
 const Profile = () => {
     return (
 
 
-        <div className="card">
+        <div className={s.card}>
             <figure>
                 <img src="../rowan-heuvel-nY4rJlJoMsY-unsplash.jpg" alt="#"/>
 
             </figure>
-            <div className="titles">
-                <div className="FirsName-title">FirstName</div>
-                <div className="LastName-title">LastName</div>
+            <div className={s.titles}>
+                <div >FirstName</div>
+                <div>LastName</div>
             </div>
             <ul>
                 <li>Some info</li>

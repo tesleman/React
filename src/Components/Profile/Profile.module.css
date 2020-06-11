@@ -1,0 +1,29 @@
+
+.titles {
+    font-family: "Roboto Condensed", sans-serif;
+    text-align: center;
+    line-height: 25px;
+}
+figure img {
+    border-radius: 100%;
+    max-width: 100%;
+    min-width: 60px;
+
+}
+.card {
+    margin-right: 25px;
+    display: grid;
+    float: left;
+    margin-left: 50px;
+    background-color: white;
+}
+.card ul li {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 13px;
+
+}
+figure {
+    display: grid;
+
+
+}
