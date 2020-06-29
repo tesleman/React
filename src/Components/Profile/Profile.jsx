@@ -1,27 +1,38 @@
 import React from 'react';
 import s from './Profile.module.css'
-const Profile = () => {
-    return (
+import Preloader from "../Preloader/Preloader";
+const Profile = (props) =>{
+
+  if (!props.profile){
+    return  <Preloader/>
+  }
+
+        return (
 
 
-        <div className={s.card}>
-            <figure>
-                <img src="../rowan-heuvel-nY4rJlJoMsY-unsplash.jpg" alt="#"/>
+            <div className={s.card}>
+                <figure>
 
-            </figure>
-            <div className={s.titles}>
-                <div >FirstName</div>
-                <div>LastName</div>
+                    <img src={props.profile.photos.small} alt="#"/>
+
+
+                </figure>
+                <div className={s.titles}>
+                    <div >{props.profile.fullName}</div>
+                    <div>LastName</div>
+                </div>
+                <ul>
+                    <li>{props.profile.aboutMe}</li>
+                    <li>{props.profile.lookingForAJob ? 'Looking for job': 'alreader geave'}</li>
+                    <li>Job descr:{props.profile.lookingForAJobDescription}</li>
+                </ul>
+
+
             </div>
-            <ul>
-                <li>Some info</li>
-                <li>Some info</li>
-                <li>Some info</li>
-            </ul>
+
+        );
 
 
-        </div>
 
-    );
 }
 export default Profile

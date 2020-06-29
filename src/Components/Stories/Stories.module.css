@@ -28,7 +28,7 @@
     margin-top: 5px;
     text-align: center;
     color: white;
-    font-family: "Roboto Condensed";
+    font-family: "Roboto Condensed", sans-serif;
     position: relative;
     margin-bottom: 25px;
 
@@ -37,4 +37,7 @@
 .wrapper {
     display: grid;
     padding-left: 25px;
+}
+.stories_item:last-child{
+    margin-bottom: 255px;
 }

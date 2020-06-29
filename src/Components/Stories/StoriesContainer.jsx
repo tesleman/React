@@ -1,29 +1,21 @@
-import React from "react";
-
-import {addPostActionCreator} from "../../redux/Redusers/message-redusor";
+import {addPostActionCreator} from "../../redux/Redusers/message-reducers";
 import Stories from "./Stories";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
 
-const StoriesContiner = () => {
-
-    return (
-        <StoreContext.Consumer>
-            {(store) => {
-                    let state = store.getState()
-                    let addPost = (text) => {
-
-
-                       store.dispatch(addPostActionCreator(text))
-                    }
-                    return  <Stories addPost={addPost} messages={state.messages}/>
-                }
-
-
-
-            }
-
-        </StoreContext.Consumer>
-    )
+let mapStateToProps = (state) => {
+    return {
+        messages: state.messages
+    }
 }
-export default StoriesContiner
+let mapDispatchToProps = (dispatch) => {
+    return {
+        addPost: (text) => {
+            dispatch(addPostActionCreator(text))
+        }
+    }
+}
+
+const StoriesContainer = connect(mapStateToProps, mapDispatchToProps)(Stories)
+
+export default StoriesContainer

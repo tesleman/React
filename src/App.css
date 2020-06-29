@@ -11,9 +11,13 @@ nav {
     background: #21283b;
 }
 
+
+button:focus{
+    background-color: brown;
+}
 html {
     position: relative;
-    min-height: 150%;
+    min-height: 125%;
     background-color: #21283b;
 }
 
@@ -23,22 +27,25 @@ html {
     width: 100%;
     bottom: 0;
     background: #21283b;
-    margin-top: 50px;
+
+    height: 250px;
+    overflow: hidden;
+
 }
 
 
 
-
+.tratata{
+    width: 42px;
+}
 
 .backdropImg {
-    position: fixed;
-    left: 16%;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    z-index: -5;
-    max-width: 60%;
 
+    left: 10%;
+    top: -15%;
+    z-index: -5;
+    max-width: 80%;
+    position: fixed;
     overflow-x: hidden;
 }
 

@@ -1,21 +1,22 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
+
     return (
+
         <nav className="nav-wrapper">
             <div className="brand-logo">Logo</div>
 
             <form>
                 <ul className="right margin-right">
                     <li>
-                        <div>A link</div>
+                        { props.isAuth ? props.login
+                        : <Link to={'/Login'}>Login</Link>
+                        }
+
                     </li>
-                    <li>
-                        <div>A second link</div>
-                    </li>
-                    <li>
-                        <div>A third link</div>
-                    </li>
+
                 </ul>
             </form>
         </nav>

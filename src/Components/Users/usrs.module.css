@@ -1,0 +1,36 @@
+.tanks{
+    color:#ffff;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(7, 1fr);
+}
+.card{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 130px;
+    position: relative;
+    float: left;
+}
+/*.card:last-child {*/
+/*     margin-bottom: 200px;*/
+/* }*/
+
+button.tratata{
+    width: 41px!important;
+}
+.photo{
+    width: 70px;
+}
+.active{
+    background-color: brown;
+}
+.btn_wrap{
+    margin-bottom: 255px;
+    float: bottom;
+}
+.status{
+    max-width: 130px;
+    max-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

@@ -1,17 +1,15 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css'
-
-
 import './App.css';
 import Sidebar from "./Components/Sidebar/Sidebar";
-import Header from './Components/Header/Header';
-import Profile from "./Components/Profile/Profile";
 import Bacground from "./Components/Bacground";
-
 import Footer from "./Components/Footer/Footer";
 import {Route} from "react-router-dom";
-import ProfileDetail from "./Components/Profile/ProfileDetail";
+import ProfileDetailContainer from "./Components/Profile/ProfileDetailContainer";
 import StoriesContainer from "./Components/Stories/StoriesContainer";
+import UsersContainer from "./Components/Users/UsercContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
+
 
 
 const App = () => {
@@ -20,13 +18,15 @@ const App = () => {
 
         <div>
             <Bacground />
-            <Header/>
+            <HeaderContainer/>
             <div className="container">
                 <Sidebar/>
-                <Profile/>
 
-                <Route path={'/Detail'} render={() => <ProfileDetail/>}/>
+
+
+                <Route path={'/Detail/:userId?'} render={() => <ProfileDetailContainer/>}/>
                 <Route path={'/Stories'}  render={() => <StoriesContainer/>}/>
+                <Route path={'/Users'}  render={() => <UsersContainer/>}/>
 
 
             </div>
