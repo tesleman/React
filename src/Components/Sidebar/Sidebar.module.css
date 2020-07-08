@@ -2,6 +2,7 @@
     display: grid;
     column-count: 1;
     float: left;
+    margin-right: 25px;
 
 }
 

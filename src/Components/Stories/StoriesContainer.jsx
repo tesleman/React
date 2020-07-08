@@ -1,6 +1,8 @@
 import {addPostActionCreator} from "../../redux/Redusers/message-reducers";
 import Stories from "./Stories";
 import {connect} from "react-redux";
+import {compose} from "redux";
+import {widthAuthRedirect} from "../hok/WidhAuthRedirect";
 
 
 let mapStateToProps = (state) => {
@@ -16,6 +18,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const StoriesContainer = connect(mapStateToProps, mapDispatchToProps)(Stories)
+export default compose(widthAuthRedirect,
+connect(mapStateToProps, mapDispatchToProps))(Stories)
 
-export default StoriesContainer

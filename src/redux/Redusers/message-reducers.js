@@ -11,9 +11,9 @@ let initialState = {
 const messageReducers = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
+          
             let newPost = {
-                message: action.postMessage,
-                id: 5,
+                ...action.postMessage, id: 5,
             }
             let copyState = {...state}
             copyState.messages = [...state.messages, newPost]
@@ -25,3 +25,13 @@ const messageReducers = (state = initialState, action) => {
 }
 export let addPostActionCreator = (text) => ({type: ADD_POST, postMessage: text})
 export default messageReducers
+
+
+// let newPost = {
+//     message: action.postMessage,
+//     id: 5,
+// }
+// let copyState = {...state}
+// copyState.messages = [...state.messages, newPost]
+//
+// return copyState

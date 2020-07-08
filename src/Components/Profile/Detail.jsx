@@ -6,14 +6,16 @@ import Preloader from "../Preloader/Preloader";
 const Detail = (props) => {
 
     if (!props.profile) {
+
         return <Preloader/>
+
     }
 
     return (<div className={s.greed}>
             <table>
                 <tbody>
                 <tr>
-                    <td colspan="2">Contacts</td>
+                    <td colSpan={2}>Contacts</td>
                 </tr>
                 <tr>
                     <td>facebook</td>

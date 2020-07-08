@@ -10,15 +10,39 @@
 nav {
     background: #21283b;
 }
+@media (max-width: 1200px){
+    .pagination{
+margin-bottom: 300px;
+    }
+}
+.nav-wrapper{
+    width: 100%;
+}
 
-
+.pagination li a{
+    background-color: #fff;
+}
+.pagination li.active a{
+    background-color: aqua;
+}
+.pagination li.active{
+    background-color: transparent;
+}
 button:focus{
     background-color: brown;
 }
-html {
+body{
+    background-color:transparent;
+}
+html  {
     position: relative;
     min-height: 125%;
-    background-color: #21283b;
+    background-color: transparent;
+    background-image: url("simon-zhu-iaJH3_7EXSg-unsplash.jpg");
+
+    background-attachment: fixed;
+    background-position:  50% 20% ;
+    background-size: cover;
 }
 
 
@@ -32,8 +56,12 @@ html {
     overflow: hidden;
 
 }
-
-
+.nav-link{
+    padding: 0;
+}
+.input-field .materialize-textarea{
+    color: white;
+}
 
 .tratata{
     width: 42px;
@@ -63,10 +91,13 @@ a {
 
 ul li {
     list-style-type: none;
-    margin-left: 15px;
+
 
 }
 
+input{
+    background-color: white!important;
+}
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
         animation: App-logo-spin infinite 20s linear;
@@ -96,3 +127,11 @@ ul li {
         transform: rotate(360deg);
     }
 }
+
+/*.paralax{*/
+/*    background-image: url("simon-zhu-iaJH3_7EXSg-unsplash.jpg");*/
+/*    min-height: 1vh;*/
+/*    background-attachment: fixed;*/
+/*    background-position: center;*/
+/*    background-size: cover;*/
+/*}*/

@@ -1,31 +1,32 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Profile from "./Profile";
 import Detail from "./Detail";
+import Status from "./Status";
+import Container from "react-bootstrap/Container";
 
 
+function ProfileClass(props) {
 
-
-class ProfileClass extends React.Component {
-
-    componentDidMount() {
-
-        let userId = this.props.match.params.userId
-        if(!userId){
-            userId = 8614
+    useEffect((props) => {
+        let userId = props.match.params.userId
+        if(!props.match.params.userId){
+            userId = props.userId
         }
-        this.props.thunkSetProfile(userId)
+        props.thunkSetProfile(userId)
+        props.thunkGetStatus(userId)
+    }, [props.match.params.userId])
 
-    }
+    return (<div>
+            <Container>
+                <Status {...props}/>
+                <Profile {...props}/>
+                <Detail {...props}/>
 
-    render() {
+            </Container>
 
-        return (<div>
-                <Profile {...this.props}/>
-                <Detail {...this.props}/>
-            </div>
-        )
-    }
+        </div>
 
+    )
 
 }
 

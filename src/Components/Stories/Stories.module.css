@@ -4,17 +4,16 @@
 }
 
 .textarea {
-    max-width: 650px;
+    max-width: 45%;
     border-radius: 10px;
     background-color: white;
-    min-height: 130px;
-
+    min-height: 5%;
     margin-top: 25px;
 
 }
 
 .stories_btn {
-    background-color: #21283b;
+
     width: 70px;
     border-radius: 10px;
     border: aquamarine 1px solid;
@@ -22,7 +21,7 @@
 }
 
 .stories_item {
-    max-width: 650px;
+    max-width: 70%;
     border-radius: 10px;
     background-color: #21283b;
     margin-top: 5px;
@@ -35,6 +34,7 @@
 }
 
 .wrapper {
+    margin-right: 0;
     display: grid;
     padding-left: 25px;
 }

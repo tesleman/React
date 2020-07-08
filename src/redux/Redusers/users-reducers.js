@@ -56,7 +56,7 @@ const userReducers = (state = initialState, action) => {
             return {...state, isLoading: action.loadingStatus}
 
         case IS_LOADING_BUTTON:
-            debugger
+
             return {
                 ...state,
                 loadingButton: action.loadingButtonStatus
