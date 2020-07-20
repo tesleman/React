@@ -4,17 +4,14 @@ import { Overlay, Popover} from "react-bootstrap";
 let target = React.createRef();
 export const renderField = ({
 
-                         input,
-                         label,
-                         type,
-                         meta: { touched, error },
-                           ...props
-                     }) => (
-
+                                input,
+                                label,
+                                type,
+                                meta: { touched, error },
+                                ...props
+                            }) => (
 
     <div  >
-
-
 
         <label>{label}</label>
         <div>

@@ -3,9 +3,8 @@ import 'materialize-css/dist/css/materialize.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Sidebar from "./Components/Sidebar/Sidebar";
-
 import Footer from "./Components/Footer/Footer";
-import {Route, withRouter} from "react-router-dom";
+import { Route, withRouter} from "react-router-dom";
 import ProfileDetailContainer from "./Components/Profile/ProfileDetailContainer";
 import StoriesContainer from "./Components/Stories/StoriesContainer";
 import UsersContainer from "./Components/Users/UsercContainer";
@@ -16,52 +15,39 @@ import {initializeThunk} from "./redux/Redusers/app-reducer";
 import {connect} from "react-redux";
 import {compose} from "redux";
 import Preloader from "./Components/Preloader/Preloader";
+import EditCont from "./Components/FormValidate/EditProfile";
 
 
 class App extends React.Component {
-
     componentDidMount() {
         this.props.initializeThunk()
     }
 
     render() {
-
         if (!this.props.isLoading) {
-
             return <Preloader/>
         }
-
         return (
-
-            <div >
-
+            <div>
                 <HeaderContainer/>
                 <Container>
                     <Sidebar/>
-
-
+                    <Route exact path='/' render={() => <ProfileDetailContainer/>}/>
                     <Route path={'/Detail/:userId?'} render={() => <ProfileDetailContainer/>}/>
                     <Route path={'/Stories'} render={() => <StoriesContainer/>}/>
                     <Route path={'/Users'} render={() => <UsersContainer/>}/>
                     <Route path={'/Login'} render={() => <LoginCont/>}/>
-
-
+                    <Route path={'/Edit'} render={() => <EditCont/>}/>
                 </Container>
-
-
                 <Footer/>
-
             </div>
-
-
         );
     }
 }
-
-
 let mapStateToProps = (state) => {
     return {
-        isLoading: state.app.isLoading
+        isLoading: state.app.isLoading,
+        myId: state.auth.id
     }
 }
 export default compose(withRouter,

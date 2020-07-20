@@ -29,11 +29,8 @@ const StoriesForma = (props) => {
 let StoriesForm = reduxForm({form: 'stories'})(StoriesForma)
 const Stories = React.memo((props) => {
     let map = props.messages.messages.map(m => <StoriesItem messages={m.message} key={m.id}/>)
-
     let onSubmit = (message) => {
-
         props.addPost(message)
-
     }
 
 

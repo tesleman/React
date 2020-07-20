@@ -11,11 +11,16 @@ let instance = axios.create({
 
 
 export let usersApi = {
+
     getUsers(page, size) {
+        console.log(page)
         return instance.get(`users?page=${page}&count=${size}`)
             .then(response => {
+                console.log(response.data)
                 return response.data
+
             })
+
     },
 
 }
@@ -54,7 +59,24 @@ export let getUsersProfile = {
             .then(response => {
                 return response.data
             })
-    }
+    },
+    putPhotos(file){
+        let formData = new FormData();
+        formData.append("image", file);
+        console.log(formData, "sadas")
+        return instance.put(`/profile/photo/`, formData)
+            .then(response => {
+                return response.data
+            })
+    },
+    ChangProfile(formData) {
+        return instance.put(`/profile`, {...formData, userId: 8614})
+            .then(response => {
+                return response
+            })
+
+    },
+
 }
 
 export let getAuth = {
@@ -74,6 +96,7 @@ export let getAuth = {
             })
 
     },
+
     logout() {
 
         return instance.delete(`auth/login/`)

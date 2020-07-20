@@ -12,7 +12,7 @@ const IS_LOADING_BUTTON = 'LOADING-BUTTON'
 let initialState = {
     users: [],
     pageSize: 35,
-    currentPage: 138,
+    currentPage: 140,
     total: 1,
     isLoading: true,
     loadingButton: []
@@ -48,6 +48,7 @@ const userReducers = (state = initialState, action) => {
         case SET_USERS:
             return {...state, users: action.users}
         case SET_CURRENT_PAGE:
+
             return {...state, currentPage: action.currentPage}
         case SET_PAGES:
             return {...state, total: action.pages}
@@ -78,7 +79,6 @@ export let setButtonLoading = (loadingButtonStatus, userId) => ({type: IS_LOADIN
 export let thunkSetUsers = (currentPage, pageSize) => (dispatch) => {
     dispatch(setLoading(true))
     usersApi.getUsers(currentPage, pageSize)
-
         .then(data => {
 
             dispatch(setUsers(data.items))
@@ -91,11 +91,13 @@ export let thunkCurrentPage = (number, pageSize) => (dispatch) => {
     usersApi.getUsers(number, pageSize)
 
         .then(data => {
-
             dispatch(setUsers(data.items))
+
             dispatch(setCurrentPage(number))
+            console.log(number)
             dispatch(setLoading(false))
         })
+
 }
 export let thunkUnFollow = (userId) => (dispatch) => {
     dispatch(setButtonLoading(true, userId))
