@@ -25,9 +25,9 @@ export const renderField = ({
                     containerPadding={20}
                 >
                     <Popover id="popover-contained">
-                        <Popover.Title as="h3">Popover</Popover.Title>
+                        <Popover.Title as="h3">Error</Popover.Title>
                         <Popover.Content>
-                            <strong>{error}</strong> Check this info.
+                            <strong>{error}</strong>
                         </Popover.Content>
                     </Popover>
                 </Overlay> )}

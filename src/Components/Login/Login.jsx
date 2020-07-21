@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {renderField} from "../FormValidate/FormValidate";
 import {minValue, reqaer} from "../validations/validations";
 import {Redirect} from "react-router-dom";
-// import s from './login.module.css'
+ import s from './login.module.css'
 
 let target = createRef()
 let minLenght = minValue(6)
@@ -32,13 +32,14 @@ let LoginForm = (props) => {
                 <Popover id="popover-contained">
                     <Popover.Title as="h3">Popover bottom</Popover.Title>
                     <Popover.Content>
-                        <strong>{props.error}</strong> Check this info.
+                        <strong>{props.error}</strong>
                     </Popover.Content>
                 </Popover>
-            </Overlay> : "SomeError"
+            </Overlay> : ""
 
             }
             <Button variant="light" type="submit">Submit</Button>
+            <a className={s.href} variant="light" href="https://social-network.samuraijs.com/signUp">Registration</a>
         </form>
     )
 }

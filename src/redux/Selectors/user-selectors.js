@@ -22,3 +22,6 @@ export let isLoading = (state) => {
 export let loadingButton = (state) => {
     return state.usersPage.loadingButton
 }
+export let getId = (state) => {
+    return state.auth.id
+}

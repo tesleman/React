@@ -12,6 +12,7 @@ let UsersClass = (props) => {
         if (props.users.length === 0) {
             props.thunkSetUsers(props.currentPage, props.pageSize)
         }
+
     }, [props])
 
 
@@ -32,7 +33,7 @@ let UsersClass = (props) => {
                                 u.photos.small ? u.photos.small : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
                             } alt={''}/></Link>
                         <div>{u.name}</div>
-                        <div>{
+                        {props.userId ?( <div>{
                             u.followed ?
                                 <Button variant="light" disabled={
                                     props.loadingButton.some(id => id === u.id)
@@ -46,8 +47,8 @@ let UsersClass = (props) => {
                                 } onClick={() => {
                                     props.thunkFollow(u.id)
                                 }}> follow </Button>
-                        }
-                        </div>
+
+                        }</div>) : ''}
                         <div className={s.status}>{u.status}</div>
 
                     </div>)}
@@ -58,7 +59,7 @@ let UsersClass = (props) => {
 
 
             <Container>
-                <Col md={{span: 8, offset: 2}}>
+                <Col md={{span: 8, offset: 1}}>
                     <ReactPaginate
                         initialPage={+props.currentPage}
                         previousLabel={'previous'}

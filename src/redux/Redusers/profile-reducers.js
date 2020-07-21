@@ -52,7 +52,6 @@ if (response.resultCode === 0) {
 
 export let thunkChangProfile = (data) => async (dispatch) => {
     let response = await getUsersProfile.ChangProfile(data)
-    debugger
     if (response.resultCode === 0)
     dispatch(setProfile(data))
 }

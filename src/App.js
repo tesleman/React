@@ -22,7 +22,6 @@ class App extends React.Component {
     componentDidMount() {
         this.props.initializeThunk()
     }
-
     render() {
         if (!this.props.isLoading) {
             return <Preloader/>
@@ -32,7 +31,7 @@ class App extends React.Component {
                 <HeaderContainer/>
                 <Container>
                     <Sidebar/>
-                    <Route exact path='/' render={() => <ProfileDetailContainer/>}/>
+                    { this.props.myId ? <Route exact path='/' render={() => <ProfileDetailContainer/>}/> :""}
                     <Route path={'/Detail/:userId?'} render={() => <ProfileDetailContainer/>}/>
                     <Route path={'/Stories'} render={() => <StoriesContainer/>}/>
                     <Route path={'/Users'} render={() => <UsersContainer/>}/>

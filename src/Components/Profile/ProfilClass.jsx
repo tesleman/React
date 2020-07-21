@@ -4,16 +4,19 @@ import Detail from "./Detail";
 import Status from "./Status";
 import Container from "react-bootstrap/Container";
 
+
 function ProfileClass(props) {
-    console.log(props.profile)
+
     useEffect(() => {
         let userId = props.match.params.userId
+
         if(!props.match.params.userId){
             userId = props.userId
         }
         props.thunkSetProfile(userId)
         props.thunkGetStatus(userId)
-    }, [props])
+        console.log(props.match)
+    }, [props.match.params.userId])
     return (<div>
             <Container>
                 <Status {...props}/>

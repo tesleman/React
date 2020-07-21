@@ -92,9 +92,7 @@ export let thunkCurrentPage = (number, pageSize) => (dispatch) => {
 
         .then(data => {
             dispatch(setUsers(data.items))
-
             dispatch(setCurrentPage(number))
-            console.log(number)
             dispatch(setLoading(false))
         })
 

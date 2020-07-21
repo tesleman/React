@@ -13,14 +13,13 @@ let instance = axios.create({
 export let usersApi = {
 
     getUsers(page, size) {
-        console.log(page)
+
         return instance.get(`users?page=${page}&count=${size}`)
             .then(response => {
-                console.log(response.data)
+
                 return response.data
 
             })
-
     },
 
 }
@@ -63,7 +62,7 @@ export let getUsersProfile = {
     putPhotos(file){
         let formData = new FormData();
         formData.append("image", file);
-        console.log(formData, "sadas")
+
         return instance.put(`/profile/photo/`, formData)
             .then(response => {
                 return response.data
@@ -90,20 +89,15 @@ export let getAuth = {
 
         return instance.post(`auth/login/`, {...formData, rememberMe: true, captcha: true})
             .then(response => {
-
                 return response.data
-
             })
 
     },
 
     logout() {
-
         return instance.delete(`auth/login/`)
             .then(response => {
-                console.log(response)
                 return response.data
-
             })
 
     }

@@ -5,10 +5,10 @@ import {compose} from "redux";
 import { HashLink as Link } from 'react-router-hash-link';
 
 
-const Sidebar = () => {
+const Sidebar = (props) => {
     return (
         <ul className={s.sideNav}>
-            <li ><Link  to={`/Detail/`}>My Profile</Link></li>
+            {props.myId ? <li> <Link to={`/Detail/`}>My Profile</Link></li> : ''}
             <li> <Link to={'/Stories'}>My Stories</Link></li>
             <li> <Link to={'/Users'}>Users</Link></li>
         </ul>

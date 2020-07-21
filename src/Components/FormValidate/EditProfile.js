@@ -57,7 +57,7 @@ let EditForm = (props) => {
 }
 let EditFormForm = reduxForm({form: 'edit'})(EditForm)
 let Edit = (props) => {
-    console.log(props)
+
     const onSubmit = (formData) => {
         props.thunkChangProfile(formData)
     }
