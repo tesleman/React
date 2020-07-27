@@ -33,4 +33,5 @@ button.tratata{
     max-height: 22px;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: aliceblue;
 }

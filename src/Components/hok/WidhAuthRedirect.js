@@ -16,3 +16,16 @@ export const widthAuthRedirect = (Component) =>{
     return connect(mapStateTToPropsWithAuthRedirect)(RedirectComponent)
 
 }
+
+export const widthautAuthRedirect = (Component) =>{
+    class RedirectComponent extends React.Component{
+        render() {
+            if (this.props.isAuth) return  <Redirect to={'/Detail'} />
+            return <Component {...this.props}/>
+        }
+
+
+    }
+    return connect(mapStateTToPropsWithAuthRedirect)(RedirectComponent)
+
+}

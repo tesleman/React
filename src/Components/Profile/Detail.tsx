@@ -1,9 +1,13 @@
-import React from "react";
+import React, {FC} from "react";
 import s from "./Detail.module.css"
 import Preloader from "../Preloader/Preloader";
+import {profileType} from "../../redux/Redusers/profile-reducers";
 
+type contactType =  {
+    profile: profileType
+}
 
-const Detail = (props) => {
+const Detail:FC<contactType> = (props) => {
 
     if (!props.profile) {
 

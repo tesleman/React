@@ -5,7 +5,6 @@ import './App.css';
 import Sidebar from "./Components/Sidebar/Sidebar";
 import Footer from "./Components/Footer/Footer";
 import { Route, withRouter} from "react-router-dom";
-import ProfileDetailContainer from "./Components/Profile/ProfileDetailContainer";
 import StoriesContainer from "./Components/Stories/StoriesContainer";
 import UsersContainer from "./Components/Users/UsercContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
@@ -17,6 +16,8 @@ import {compose} from "redux";
 import Preloader from "./Components/Preloader/Preloader";
 import EditCont from "./Components/FormValidate/EditProfile";
 
+import ProfileClass from "./Components/Profile/ProfilClass";
+
 
 class App extends React.Component {
     componentDidMount() {
@@ -26,13 +27,17 @@ class App extends React.Component {
         if (!this.props.isLoading) {
             return <Preloader/>
         }
+
+
         return (
+
             <div>
                 <HeaderContainer/>
                 <Container>
                     <Sidebar/>
-                    { this.props.myId ? <Route exact path='/' render={() => <ProfileDetailContainer/>}/> :""}
-                    <Route path={'/Detail/:userId?'} render={() => <ProfileDetailContainer/>}/>
+
+                    { this.props.myId ? <Route exact path='/' render={() => <ProfileClass  />}/> : ""}
+                    <Route path={'/Detail/:userId?'} render={() => <ProfileClass  />}/>
                     <Route path={'/Stories'} render={() => <StoriesContainer/>}/>
                     <Route path={'/Users'} render={() => <UsersContainer/>}/>
                     <Route path={'/Login'} render={() => <LoginCont/>}/>
@@ -49,7 +54,9 @@ let mapStateToProps = (state) => {
         myId: state.auth.id
     }
 }
-export default compose(withRouter,
-    connect(mapStateToProps, {initializeThunk}))(App)
+export default compose(
+    withRouter,
+    connect(mapStateToProps, {initializeThunk})
+)(App)
 
 

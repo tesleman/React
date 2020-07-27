@@ -5,11 +5,13 @@ import {thunkLogin} from "../../redux/Redusers/auth-reducer";
 import {connect} from "react-redux";
 import {renderField} from "../FormValidate/FormValidate";
 import {minValue, reqaer} from "../validations/validations";
-import {Redirect} from "react-router-dom";
+import { withRouter} from "react-router-dom";
  import s from './login.module.css'
+import {compose} from "redux";
+import {widthautAuthRedirect} from "../hok/WidhAuthRedirect";
 
 let target = createRef()
-let minLenght = minValue(6)
+let minLenght = minValue(3)
 let LoginForm = (props) => {
 
 
@@ -38,8 +40,8 @@ let LoginForm = (props) => {
             </Overlay> : ""
 
             }
-            <Button variant="light" type="submit">Submit</Button>
-            <a className={s.href} variant="light" href="https://social-network.samuraijs.com/signUp">Registration</a>
+            <Button variant="primary" disabled={props.loading} type="submit">Submit</Button>
+            <a className={s.href}  variant="light" href="https://social-network.samuraijs.com/signUp">Registration</a>
         </form>
     )
 }
@@ -48,13 +50,12 @@ let Login = (props) => {
     const onSubmit = (formData) => {
         props.thunkLogin(formData)
     }
-    if (props.isAuth) return  <Redirect to={'/Detail'} />
     return (<div>
             <Container>
                 <h1>Login</h1>
                 <Row xl={12}>
                     <Col sm={8}>
-                        <ContactForm onSubmit={onSubmit}/>
+                        <ContactForm {...props} onSubmit={onSubmit}/>
                     </Col>
                 </Row>
             </Container>
@@ -63,6 +64,13 @@ let Login = (props) => {
 }
 let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth,
-    loggedIn: state.auth.loggedIn})
-let LoginCont = connect(mapStateToProps, {thunkLogin})(Login)
+    loggedIn: state.auth.loggedIn,
+    loading: state.auth.loading,
+    usrId: state.auth.id
+
+})
+let LoginCont = compose(
+    withRouter,
+    widthautAuthRedirect,
+    connect(mapStateToProps, {thunkLogin}))(Login)
 export default LoginCont

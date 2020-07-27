@@ -9,6 +9,7 @@ figure img {
     max-width: 100%;
     min-width: 60px;
     cursor: pointer;
+    margin: 0 auto;
 
 }
 .card {

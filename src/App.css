@@ -37,8 +37,8 @@ body{
 html  {
     position: relative;
     min-height: 125%;
-    background-color: transparent;
-    background-image: url("simon-zhu-iaJH3_7EXSg-unsplash.jpg");
+    background-color: #282c34;
+    /*background-image: url("simon-zhu-iaJH3_7EXSg-unsplash.jpg");*/
 
     background-attachment: fixed;
     background-position:  50% 20% ;

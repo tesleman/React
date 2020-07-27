@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
 import appReducers from "./Redusers/app-reducer";
 
-let reducers = combineReducers({
+let reducersRoot = combineReducers({
     messages: messageReduser,
     usersPage: userReducers,
     auth: authReducers,
@@ -15,7 +15,9 @@ let reducers = combineReducers({
     form: formReducer,
     app: appReducers
 })
+type reducersRootType = typeof  reducersRoot
+export type AppStateType = ReturnType<reducersRootType>
 
-let store = createStore(reducers, applyMiddleware(thunk));
+let store = createStore(reducersRoot, applyMiddleware(thunk));
 
 export default store

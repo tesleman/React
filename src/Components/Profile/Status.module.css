@@ -3,7 +3,9 @@
     width: 300px;
 }
 
-
+.textColor{
+    color: white;
+}
 .collor{
     background: white!important;
 }

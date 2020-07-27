@@ -1,55 +1,92 @@
-import React, {useEffect} from "react";
+import React, {FC, useEffect} from "react";
 import s from "./usrs.module.css"
 import Preloader from "../Preloader/Preloader";
 import {Link} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import {Button, Col} from "react-bootstrap";
 import ReactPaginate from 'react-paginate';
+import {usersType} from "../../redux/Redusers/users-reducers";
 
-let UsersClass = (props) => {
+
+export type mapDispatchType={
+    thunkSetUsers: (currentPage: number, pageSize:number) => void
+    thunkCurrentPage: (number: number , pageSize:number) => void
+    thunkUnFollow: (userId: number) => void
+    thunkFollow: (userId: number) => void
+}
+
+
+export type  propsType = {
+    currentPage: number
+    pageSize:number
+    total: number
+    isLoading:boolean
+    userId:number
+    loadingButton: Array<number>
+    users: Array<usersType>
+}
+
+let UsersClass:FC<propsType & mapDispatchType> = ({currentPage,
+                                    pageSize,
+                                    users,
+                                    thunkSetUsers,
+                                    thunkCurrentPage,
+                                    total,
+                                    isLoading,
+                                    userId,
+                                    loadingButton,
+                                    thunkUnFollow,
+                                    thunkFollow
+
+                                    }) => {
 
     useEffect(() => {
-        if (props.users.length === 0) {
-            props.thunkSetUsers(props.currentPage, props.pageSize)
+        if (users.length === 0) {
+            thunkSetUsers(currentPage, pageSize)
         }
 
-    }, [props])
+
+    }, [users])
 
 
-    let onPageChang = (number) => {
+    let onPageChang = (number:Object) => {
         let val = Object.values(number)
-        props.thunkCurrentPage(val[0] + 1, props.pageSize)
+        thunkCurrentPage(val[0] + 1, pageSize)
     }
-    let pag = Math.ceil(props.total / props.pageSize)
+    let pag = Math.ceil(total / pageSize)
     return (<Container>
 
-            {props.isLoading ? <Preloader/> : <Container>
+            {isLoading ? <Preloader/> : <Container>
                 <div className={s.tanks}>
 
-                    {props.users.map(u => <div className={s.card}
+                    {users.map(u =>
+
+                        <div className={s.card}
+
                                                key={u.id}>
                         <Link to={'/Detail/' + u.id}>
                             <img className={s.photo} src={
                                 u.photos.small ? u.photos.small : 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
                             } alt={''}/></Link>
                         <div>{u.name}</div>
-                        {props.userId ?( <div>{
+                            <div className={s.status}>{u.status ? u.status : "..."}</div>
+                        {userId ?( <div>{
                             u.followed ?
                                 <Button variant="light" disabled={
-                                    props.loadingButton.some(id => id === u.id)
+                                    loadingButton.some(id => id === u.id)
                                 } onClick={() => {
-                                    props.thunkUnFollow(u.id)
+                                    thunkUnFollow(u.id)
 
 
                                 }}>unfollow </Button>
                                 : <Button variant="light" disabled={
-                                    props.loadingButton.some(id => id === u.id)
+                                    loadingButton.some(id => id === u.id)
                                 } onClick={() => {
-                                    props.thunkFollow(u.id)
+                                    thunkFollow(u.id)
                                 }}> follow </Button>
 
                         }</div>) : ''}
-                        <div className={s.status}>{u.status}</div>
+
 
                     </div>)}
 
@@ -61,7 +98,7 @@ let UsersClass = (props) => {
             <Container>
                 <Col md={{span: 8, offset: 1}}>
                     <ReactPaginate
-                        initialPage={+props.currentPage}
+                        initialPage={+currentPage - 1}
                         previousLabel={'previous'}
                         nextLabel={'next'}
                         breakLabel={'...'}
@@ -71,7 +108,6 @@ let UsersClass = (props) => {
                         pageRangeDisplayed={10}
                         onPageChange={onPageChang}
                         containerClassName={'pagination'}
-                        subContainerClassName={'pages pagination'}
                         activeClassName={'active'}
                     />
                 </Col>
