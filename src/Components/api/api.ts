@@ -83,6 +83,7 @@ export let getUsersProfile = {
     ChangProfile(formData: setProfileActionTypePayload) {
         return instance.put<APIResponseType>(`/profile`, {...formData, userId: 8614})
             .then(response => {
+                console.log(response.data)
                 return response.data
             })
 

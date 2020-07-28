@@ -1,6 +1,8 @@
 import React from "react";
+import {WrappedFieldProps} from "redux-form";
+import {renderFieldType} from "../Login/FormValidate";
 
-export const renderEditField = ({
+export const renderEditField:React.FC<WrappedFieldProps & renderFieldType> = ({
 
                                 input,
                                 label,

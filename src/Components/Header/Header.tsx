@@ -4,10 +4,13 @@ import {NavDropdown} from "react-bootstrap";
 import { HashLink as Link } from 'react-router-hash-link';
 import s from "./Header.module.css"
 import {compose} from "redux";
-import {withRouter} from "react-router-dom";
+import {RouteComponentProps, withRouter} from "react-router-dom";
+import {propsType, thunkLogoutType} from "./HeaderContainer";
 
 
-const Header = (props) => {
+
+
+const Header: React.FC<RouteComponentProps & propsType & thunkLogoutType>  = (props) => {
 
     useEffect(()=>{
 

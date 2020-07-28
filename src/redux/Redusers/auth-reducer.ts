@@ -66,8 +66,8 @@ export let thunkLogin = (formData: any)=> async (dispatch:any ) => {
     dispatch(isLoading(true))
     let data = await getAuth.login(formData)
     if (data.resultCode === 0) {
-        dispatch(thunkSetAuth())
-        dispatch(isLoading(false))
+     dispatch(thunkSetAuth())
+            dispatch(isLoading(false))
     } else {
         let message = data.messages.length > 0 ? data.messages[0] : "Common Error"
         dispatch(stopSubmit('contact', {_error: message}))

@@ -13,9 +13,6 @@ type propsType ={
 
 }
 
-
-
-
 const Status:React.FC<propsType> = (props) => {
     const [editMod, setEditMode] = useState(false);
     const [status, setStatus] = useState(props.status);
@@ -44,7 +41,7 @@ const Status:React.FC<propsType> = (props) => {
                             </Form.Row> : <Col>
                                 <Form.Control onChange={changeStatus} className={s.collor}  size="sm"
                                            value={status}   type="text" placeholder={props.status}/>
-                                <Button onClick={()=>disabledEditMode(false)}>sss</Button>
+                                <Button style={{float: 'left'}} onClick={()=>disabledEditMode(false)}>Sssubmit</Button>
                             </Col>
                         }
                     </Form.Row> :  <Form.Row><Form.Label className={s.textColor}>{props.status}</Form.Label></Form.Row>  }

@@ -3,9 +3,13 @@ import s from "./Sidebar.module.css"
 import {connect} from "react-redux";
 import {compose} from "redux";
 import { HashLink as Link } from 'react-router-hash-link';
+import {AppStateType} from "../../redux/redux-store";
 
+type propsType ={
+    myId: number | null
+}
 
-const Sidebar = (props) => {
+const Sidebar:React.FC<propsType> = (props) => {
     return (
         <ul className={s.sideNav}>
             {props.myId ? <li> <Link to={`/Detail/`}>My Profile</Link></li> : ''}
@@ -14,7 +18,7 @@ const Sidebar = (props) => {
         </ul>
     );
 }
-let mapStateToProps = (state) => {
+let mapStateToProps = (state:AppStateType):propsType => {
    return{
        myId: state.auth.id
    }

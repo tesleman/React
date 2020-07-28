@@ -54,10 +54,10 @@ const Profile:FC<propsType> = (props) => {
                 <div>{props.profile.fullName}</div>
                 <div>LastName</div>
             </div>
-            <ul style={{maxWidth: 200 + 'px'}}>
+            <ul style={{maxWidth: 200 + 'px' }}>
                 <li>{props.profile.aboutMe}</li>
-                <li>{props.profile.lookingForAJob ? 'Looking for job' : 'alreader geave'}</li>
-                <li>Job description:{props.profile.lookingForAJobDescription}</li>
+                <li>{props.profile.lookingForAJob ? 'Looking for job' : 'already heave'}</li>
+                <li>Job description: {props.profile.lookingForAJobDescription}</li>
             </ul>
 
 

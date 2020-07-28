@@ -1,6 +1,6 @@
 let ADD_POST = 'ADD-POST'
 
-type messagesType = {
+export type messagesType = {
     message: string
     id: number
 }
@@ -12,6 +12,7 @@ let initialState = {
         {message: 'sgdf', id: 3},
     ] as Array<messagesType>
 }
+
 
 type initialStateType = typeof initialState
 

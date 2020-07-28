@@ -7,7 +7,27 @@ const SET_USER_PROFILE = 'SRT-USER-PROFILE'
 const SET_USER_STATUS = 'SRT-USER-STATUS'
 const SET_USER_PHOTO = 'localhost/my-site/SET_USER_PHOTO'
 
-
+let propfile = {
+    aboutMe: null as string | null,
+    contacts: {
+        facebook: null as string | null,
+        github: null as string | null,
+        instagram: null as string | null,
+        mainLink: null as string | null,
+        twitter: null as string | null,
+        vk:null as string | null,
+        website: null as string | null,
+        youtube: null as string | null,
+    },
+    fullName: null as string | null,
+    lookingForAJob: null as boolean | null,
+    lookingForAJobDescription: null as string | null,
+    photos: {
+        small: null as string | null,
+        large:  null as string | null,
+    },
+    userId: null as number | null,
+}
 export type contactsType = {
     facebook: string | null,
     github: string | null,
@@ -18,15 +38,26 @@ export type contactsType = {
     website: string | null,
     youtube: string | null,
 }
-export type  profileType = {
-    aboutMe: string | null,
-    contacts: contactsType,
-    fullName: string | null,
-    lookingForAJob: boolean | null,
-    lookingForAJobDescription: string | null,
-    photos: PhotosType,
-    userId: number | null
-}
+
+export type profileType = typeof propfile
+// export type  profileType = {
+//     aboutMe: string | null,
+//     contacts: {
+//         facebook: string | null,
+//         github: string | null,
+//         instagram: string | null,
+//         mainLink: string | null,
+//         twitter: string | null,
+//         vk: string | null,
+//         website: string | null,
+//         youtube: string | null,
+//         },
+//     fullName: string | null,
+//     lookingForAJob: boolean | null,
+//     lookingForAJobDescription: string | null,
+//     photos: PhotosType,
+//     userId: number | null
+// }
 
 export type profilePayloadtype = {
     profile: profileType | null,

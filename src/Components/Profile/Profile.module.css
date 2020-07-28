@@ -22,6 +22,10 @@ figure img {
 .card ul li {
     font-family: "Roboto Condensed", sans-serif;
     font-size: 13px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 
 }
 figure {

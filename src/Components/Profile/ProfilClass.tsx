@@ -85,6 +85,6 @@ let mapStateToProps = (state:AppStateType):mapStateToPropsType => {
 }
 export default compose(
     withRouter,
-    connect(mapStateToProps, {thunkSetProfile,thunkGetStatus, setStatus,thunkPutStatus}),
+    connect(mapStateToProps, {thunkSetProfile,thunkGetStatus, setStatus,thunkPutStatus, handleFile}),
 )(ProfileClass)
     
